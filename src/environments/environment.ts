@@ -3,7 +3,9 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  apiAuth: 'https://mysql-bp-login.herokuapp.com/',
+  apiMarvel: 'https://bp-marvel-api.herokuapp.com/marvel-characters',
 };
 
 /*

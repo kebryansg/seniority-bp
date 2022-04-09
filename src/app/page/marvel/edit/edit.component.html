@@ -1,0 +1,53 @@
+<section>
+  <div class="mt-20 card d-flex justify-content-center">
+
+    <form [formGroup]="editForm"
+          class="w-100 d-flex flex-column gap-10 justify-content-center"
+          (submit)="submitForm()"
+          style="max-width: 450px;">
+      <span class="title-form">Nuevo Personaje</span>
+
+      <div class="form-control-inline">
+        <label>Nombre: </label>
+        <input formControlName="title" type="text" placeholder="Nombre">
+        <div *ngIf="title.touched && title.errors?.required"
+             class="control-error">
+          Campo requerido
+        </div>
+      </div>
+      <div class="form-control-inline">
+        <label>Descripción: </label>
+        <textarea formControlName="body" placeholder="Descripción" ></textarea>
+        <div *ngIf="description.touched && description.errors?.required"
+             class="control-error">
+          Campo requerido
+        </div>
+      </div>
+      <div class="form-control-inline">
+        <label>Imagen: </label>
+        <input formControlName="image" type="text" placeholder="Imagen">
+        <div *ngIf="image.touched && image.errors?.required"
+             class="control-error">
+          Campo requerido
+        </div>
+      </div>
+
+      <div class="mt-10 d-flex justify-content-center gap-20">
+        <button type="submit"
+                class="btn btn-primary"
+                [ngClass]="{'btn-disabled': editForm.invalid}"
+                [disabled]="editForm.invalid">
+          <i class='bx bx-save text-white'></i>
+          Guardar
+        </button>
+        <button type="reset"
+                class="btn btn-primary"
+                (click)="cancelForm()">
+          <i class='bx bx-x text-white'></i>
+          Cancelar
+        </button>
+      </div>
+    </form>
+
+  </div>
+</section>

@@ -1,0 +1,36 @@
+<div style="padding: 10px">
+  <section class="d-flex justify-content-between">
+    <span class="title-form">Listado de personajes</span>
+    <button type="button"
+            class="btn btn-primary"
+            (click)="outLogin()">
+      <i class='bx bx-arrow-to-left text-white'></i>
+      Cerrar sesión
+    </button>
+  </section>
+
+  <section class="mt-20 d-flex justify-content-between">
+    <div class="form-control">
+      <input type="text" placeholder="Buscar">
+    </div>
+    <button type="button"
+            class="btn btn-primary"
+            (click)="editItem()">
+      <i class='bx bx-plus text-white'></i>
+      Nuevo
+    </button>
+  </section>
+
+  <app-edit [ngClass]="showForm? 'd-block':'d-none'"
+            (evtAction)="evtForm($event)"
+            #editComponent
+  ></app-edit>
+
+  <section class="mt-10 content-items">
+    <app-card *ngFor="let row of itemsData"
+              [itemMarvel]="row"
+              (clickEvent)="actions($event, row)"
+    ></app-card>
+  </section>
+
+</div>

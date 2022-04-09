@@ -1,1 +1,218 @@
 /* You can add global styles to this file, and also import other style files */
+$red: #ec1d24;
+
+html {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #f8f9fa;
+  font-family: "Calibri Light";
+}
+
+
+a {
+  color: blue;
+}
+
+.btn {
+  all: unset;
+  padding: 0.5rem;
+  border-radius: 4px;
+  color: #f0f3f6;
+  cursor: pointer;
+  font-weight: 500;
+
+  &.btn-primary {
+    background-color: $red;
+  }
+
+  &.btn-disabled {
+    cursor: not-allowed;
+    opacity: 0.6 !important;
+  }
+
+  &-icon {
+    color: $red;
+    padding: 10px;
+    background-color: aliceblue;
+  }
+
+  &:hover {
+    opacity: 0.8;
+  }
+
+  &:active {
+    transform: scale(0.99);
+  }
+
+}
+
+.form-control {
+  display: flex;
+  flex-direction: column;
+
+  input, textarea {
+    padding: 0.5rem;
+    border-radius: 2px;
+    background-color: #fff;
+    border: 1px solid #ebe4e4;
+  }
+
+  .control-error {
+    margin-top: 5px;
+    margin-left: 2px;
+    font-weight: 600;
+    font-size: 12px;
+    color: $red;
+  }
+}
+
+.form-control-inline {
+  display: grid;
+  grid-template-columns: 90px auto;
+  grid-template-areas:
+    'label input'
+      'label error';
+  align-items: center;
+
+  label {
+    grid-area: label;
+    font-weight: bold;
+  }
+
+  input, textarea {
+    grid-area: input;
+    padding: 0.5rem;
+    border-radius: 2px;
+    background-color: #fff;
+    border: 1px solid #ebe4e4;
+    resize: vertical;
+  }
+
+  .control-error {
+    grid-area: error;
+    margin-top: 5px;
+    margin-left: 2px;
+    font-weight: 600;
+    font-size: 12px;
+    color: $red;
+  }
+}
+
+.card {
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #fff;
+  border: 1px solid #ebe4e4;
+}
+
+
+.d-flex {
+  display: flex;
+
+  &.flex-wrap {
+    flex-wrap: wrap
+  }
+
+  &.flex-column {
+    flex-direction: column;
+  }
+
+  &.align-items-center {
+    align-items: center
+  }
+
+  &.justify-content-center {
+    justify-content: center
+  }
+
+  &.justify-content-between {
+    justify-content: space-between;
+  }
+
+}
+
+.gap {
+  &-10 {
+    gap: 10px;
+  }
+
+  &-20 {
+    gap: 20px;
+  }
+}
+
+.title-form {
+  font-size: 25px;
+  text-align: center;
+  font-weight: bold;
+}
+
+//#region Margin
+.m {
+  &t-10 {
+    margin-top: 10px;
+  }
+
+  &t-20 {
+    margin-top: 20px;
+  }
+}
+
+//#endregion
+
+.alert {
+  padding: .25rem;
+  border-radius: 4px;
+  font-weight: bold;
+
+  &-danger {
+    background-color: #dc354573;
+  }
+
+  &-info {
+    background-color: #dc354573;
+  }
+}
+
+.d-none{display: none}
+.d-block{display: block}
+
+.w-100 {
+  width: 100% !important;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-white {
+  color: white;
+}
+
+//#region SPINNER
+.spinner {
+  border: 4px solid rgba(0, 0, 0, 0.1);
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border-left-color: #09f;
+
+  animation: spin 1s ease infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+//#endregion

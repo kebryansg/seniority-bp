@@ -1,0 +1,44 @@
+<form [formGroup]="authForm"
+      autocomplete="off"
+      (submit)="submitForm()">
+  <div class="card d-flex gap-10 flex-column flex-wrap"
+       style="width: 350px;">
+    <h3>Iniciar sesión</h3>
+
+
+    <div class="form-control">
+      <input formControlName="email"
+             type="text"
+             placeholder="Email">
+      <span *ngIf="email.touched && email.errors?.required"
+            class="control-error">
+        Email es requerido
+      </span>
+    </div>
+    <div class="form-control">
+      <input formControlName="password"
+             type="password"
+             placeholder="Password">
+      <span *ngIf="password.touched && password.errors?.required"
+            class="control-error">
+        Password es requerido
+      </span>
+    </div>
+
+    <button type="submit"
+            class="btn btn-primary d-flex justify-content-center"
+            [ngClass]="{'btn-disabled': authForm.invalid}"
+            [loading]="loadingForm"
+            [disabled]="authForm.invalid">
+      Iniciar sesión
+    </button>
+
+    <div class="alert alert-danger" *ngIf="messageFail">
+      {{messageFail}}
+    </div>
+
+    <a [routerLink]="['..','register']">
+      Crear cuenta
+    </a>
+  </div>
+</form>

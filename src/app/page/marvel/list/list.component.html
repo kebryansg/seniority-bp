@@ -11,7 +11,9 @@
 
   <section class="mt-20 d-flex justify-content-between">
     <div class="form-control">
-      <input type="text" placeholder="Buscar">
+      <input type="text"
+             [formControl]="txtSearch"
+             placeholder="Buscar">
     </div>
     <button type="button"
             class="btn btn-primary"
@@ -21,7 +23,7 @@
     </button>
   </section>
 
-  <app-edit [ngClass]="showForm? 'd-block':'d-none'"
+  <app-edit id="formEdit" [ngClass]="showForm? 'd-block':'d-none'"
             (evtAction)="evtForm($event)"
             #editComponent
   ></app-edit>

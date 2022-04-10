@@ -23,7 +23,11 @@ export class MarvelService {
   }
 
   getItemsByTitle(title: string): Observable<MarvelData[]> {
-    return this.http.get<MarvelData[]>(this.apiURL + '');
+    return this.http.get<MarvelData[]>(this.apiURL + '', {
+      params: {
+        title
+      }
+    });
   }
 
   create(data: any) {

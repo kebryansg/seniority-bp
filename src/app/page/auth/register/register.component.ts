@@ -18,8 +18,7 @@ export class RegisterComponent implements OnInit {
   loadingRegister: boolean = false
 
   constructor(private fb: FormBuilder,
-              private authService: AuthService,
-              private router: Router,) {
+              private authService: AuthService,) {
   }
 
   ngOnInit(): void {

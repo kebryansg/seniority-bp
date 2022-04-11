@@ -23,7 +23,13 @@
     </button>
   </section>
 
-  <app-edit id="formEdit" [ngClass]="showForm? 'd-block':'d-none'"
+  <section *ngIf="messageEditCreate"
+           class="mt-20">
+    <p class="message-response">{{messageEditCreate}}</p>
+  </section>
+
+  <app-edit class="mt-20"
+            [ngClass]="showForm? 'd-block':'d-none'"
             (evtAction)="evtForm($event)"
             #editComponent
   ></app-edit>

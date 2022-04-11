@@ -19,6 +19,7 @@ export class ListComponent implements OnInit {
   itemsData: MarvelData[]
   showForm: boolean = false
   txtSearch: FormControl
+  messageEditCreate: string
 
   @ViewChild('editComponent', {static: true}) editComponent: EditComponent
 
@@ -62,12 +63,11 @@ export class ListComponent implements OnInit {
     this.editComponent.setData({...item})
 
     setTimeout(() =>
-      document.getElementById("formEdit")
-        .scrollIntoView({
-          behavior: "smooth",
-          block: "start",
-          inline: "nearest"
-        }), 500);
+      window.scroll({
+        top: 0,
+        left: 0,
+        behavior: 'smooth'
+      }), 500);
   }
 
   evtForm(evt: MarvelFormData) {
@@ -81,7 +81,10 @@ export class ListComponent implements OnInit {
         this.marvelService.create(data)
 
       obs$.subscribe({
-        next: () => this.sbjItems$.next()
+        next: (res) => {
+          this.setMessage(res.message)
+          this.sbjItems$.next()
+        }
       })
     }
     this.showForm = false
@@ -91,8 +94,15 @@ export class ListComponent implements OnInit {
     this.marvelService.delete(idItem)
       .subscribe({
         next: () => {
+          this.setMessage('Personaje eliminado')
+          this.sbjItems$.next()
         }
       })
+  }
+
+  setMessage(message: string) {
+    this.messageEditCreate = message
+    setTimeout(() => this.messageEditCreate = null, 3000)
   }
 
 }

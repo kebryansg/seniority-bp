@@ -14,6 +14,9 @@ export class MarvelService {
   constructor(private http: HttpClient) {
   }
 
+  /**
+   * Get Items filter by authorId
+   */
   getItems(): Observable<MarvelData[]> {
     return this.http.get<MarvelData[]>(this.apiURL + '', {
       params: {
@@ -22,6 +25,10 @@ export class MarvelService {
     });
   }
 
+  /**
+   * Get Items filter by title and authorId
+   * @param title Title
+   */
   getItemsByTitle(title: string): Observable<MarvelData[]> {
     return this.http.get<MarvelData[]>(this.apiURL + '', {
       params: {
@@ -30,16 +37,29 @@ export class MarvelService {
     });
   }
 
+  /**
+   * Create Item
+   * @param data Item Data
+   */
   create(data: any) {
     return this.http.post(this.apiURL, data)
   }
 
+  /**
+   * Update Item By Id
+   * @param idItem Id Item
+   * @param data Item Data
+   */
   update(idItem: string, data: any) {
     return this.http.put(`${this.apiURL}/${idItem}`, data)
   }
 
+  /***
+   * Delete Item By Id
+   * @param idItem Id Item
+   */
   delete(idItem: string) {
-    return this.http.delete(this.apiURL + idItem)
+    return this.http.delete(`${this.apiURL}/${idItem}`)
   }
 
 }

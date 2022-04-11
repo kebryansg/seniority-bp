@@ -10,6 +10,9 @@ import {evtEmit} from "../../../utils/util";
 export class CardComponent implements OnInit {
 
   @Input() itemMarvel!: MarvelData
+  /**
+   * Emitter Event - Options EDIT - DELETE
+   */
   @Output() clickEvent: EventEmitter<evtEmit> = new EventEmitter<evtEmit>()
 
   constructor() {

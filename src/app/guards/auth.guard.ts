@@ -7,7 +7,7 @@ import {LOCAL_KEYS} from "../utils/util";
   providedIn: 'root'
 })
 export class AuthGuard implements CanActivate {
-  constructor(private router: Router) {
+  constructor(public router: Router) {
   }
 
   canActivate(
